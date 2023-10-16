@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Lollipop - Coming Soon</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  </head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="index.html"><span>Lollipop</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <div class="contact-link float-right">
+        <a href="#contact" class="scrollto">Contact Us</a>
+      </div>
+
+    </div>
+  </header><!-- End #header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <nav class=" {% if navbar == 'page1' %} active {% endif %}">
+        <div>
+          <h5>Hello</h5>
+        </div>
+      </nav>
+      <!--<h1>WeBuild</h1>-->
+      <svg viewBox="0 0 960 300">
+        <symbol id="s-text">
+          <text text-anchor="middle" x="50%" y="80%">Lollipop. </text>
+          <!--<text text-anchor="middle" x="52%" y="80%">Lollipop. </text>-->
+          
+        </symbol>
+      
+        <g class = "g-ants">
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+          <use xlink:href="#s-text" class="text-copy"></use>
+        </g>
+      </svg>
+
+      <h2>Launching soon.</h2>
+      <!--<h2 class="word"></h2>-->
+      <!--<div class="word"></div>-->
+      <div class="countdown" data-count="2023/12/3" data-template="%d days %h:%m:%s"></div>
+
+      <form id="Notification" action="#contact" method="POST" role="form" class="php-email-form">
+      {% csrf_token %}  
+        <div class="row no-gutters">
+          <div class="col-md-6 form-group pr-md-1">
+            <input type="text" name="name" class="form-control" id="nameNote" placeholder="Your Name" required>
+          </div>
+          <div class="col-md-6 form-group pl-md-1">
+            <input type="email" class="form-control" name="email" id="emailNote" placeholder="Your Email" required>
+          </div>
+        </div>
+
+        <div class="my-3">
+          <div class="loading">Loading</div>
+          <div class="error-message">error-message</div>
+          <div class="sent-message">Your notification request was sent. Thank you!</div>
+        </div>
+        <div class="text-center"><button type="submit">Get notified!</button></div>
+      </form>
+    </div>
+    <!--<video>  
+      <source src="{% static 'assets/img/background.mp4' %}" type="video/webm">
+    </video>-->
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row contact-info">
+
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Address</h3>
+              <address>Johanesburg, South Africa</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="bi bi-phone"></i>
+              <h3>Phone Number</h3>
+              <p><a href="tel:+155895548855">000 111 2222</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="bi bi-envelope"></i>
+              <h3>Email</h3>
+              <p><a href="mailto:info@example.com">Not just yet@holdon.com</a></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form">
+          <h5 class="text-center"></h5>
+          <!--<form id="contactForm" method="POST" class="contact-form" action="#contact">-->
+          <form id="contactForm" class="contact-form">
+          {% csrf_token %} 
+            <div class="row">
+              <div class="col-md form-group">
+                <!--{{form.name}}-->
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your name" required>
+              </div>
+              <div class="col-md form-group mt-3 mt-md-0">
+                <!--{{form.email}}-->
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your email" required>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <!--{{form.subject}}-->
+              <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group mt-3">
+              <!--{{form.message}}-->
+              <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <!--<div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>-->
+            </div>
+            <div class="text-center" style="margin: 1rem auto">
+              <!--{% include 'main/partials/messages.html' %}-->
+              <button type="submit" class="button">
+                Send Message
+              </button>
+            </div>
+          </form>          
+        </div>
+      </div>
+    </section><!-- End Contact Us Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Lollipop</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="">Lollipop</a>
+      </div>
+    </div>
+  </footer><!-- End #footer -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+  <script src="{% static 'assets/js/main2.js' %}"></script>
+
+</body>
+
+</html>
