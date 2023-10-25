@@ -32,9 +32,7 @@
     <div class="container-fluid d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>Lollipop</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="{% static 'assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        <h1 class="text-light"><a href="{% url 'main:home' %}"><span>Lollipop</span></a></h1>
       </div>
 
       <div class="contact-link float-right">
@@ -47,17 +45,9 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
-      <nav class=" {% if navbar == 'page1' %} active {% endif %}">
-        <div>
-          <h5>Hello</h5>
-        </div>
-      </nav>
-      <!--<h1>WeBuild</h1>-->
-      <svg viewBox="0 0 960 300">
+      <svg class="hidden">
         <symbol id="s-text">
-          <text text-anchor="middle" x="50%" y="80%">Lollipop. </text>
-          <!--<text text-anchor="middle" x="52%" y="80%">Lollipop. </text>-->
-          
+          <text text-anchor="middle" x="50%" y="80%">Lollipop.</text>
         </symbol>
       
         <g class = "g-ants">
@@ -69,68 +59,70 @@
         </g>
       </svg>
 
-      <h2>Launching soon.</h2>
+      <h2>Coming soon.</h2>
       <!--<h2 class="word"></h2>-->
       <!--<div class="word"></div>-->
-      <div class="countdown" data-count="2023/12/3" data-template="%d days %h:%m:%s"></div>
+      <div class="countdown obj hidden" data-count="2024/01/10" data-template="%d days %h:%m:%s"></div>
 
-      <form id="Notification" action="#contact" method="POST" role="form" class="php-email-form">
+      <form id="Notification" class="notification-form">
       {% csrf_token %}  
-        <div class="row no-gutters">
-          <div class="col-md-6 form-group pr-md-1">
+        <div class="row no-gutters obj hidden">
+          <div class="col-md-6 form-group pr-md-1" style="margin: 0.1rem auto">
             <input type="text" name="name" class="form-control" id="nameNote" placeholder="Your Name" required>
           </div>
-          <div class="col-md-6 form-group pl-md-1">
+          <div class="col-md-6 form-group pl-md-1" style="margin: 0.1rem auto">
             <input type="email" class="form-control" name="email" id="emailNote" placeholder="Your Email" required>
           </div>
         </div>
 
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message">error-message</div>
-          <div class="sent-message">Your notification request was sent. Thank you!</div>
+        <div class="g-recaptcha"
+          data-sitekey="6Le6BrUoAAAAAFMT8RicNDQs6xesNF5n6m4GGndS"
+          data-callback="call"
+          data-size="invisible">
         </div>
-        <div class="text-center"><button type="submit">Get notified!</button></div>
+
+
+        <div class="text-center obj hidden">
+          <button id="button-note" type="submit" class="button-Notify">
+            Get notified!
+          </button>
+        </div>
       </form>
     </div>
-    <!--<video>  
-      <source src="{% static 'assets/img/background.mp4' %}" type="video/webm">
-    </video>-->
   </section><!-- End Hero -->
 
   <main id="main">
-
     <!-- ======= Contact Us Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
-
-        <div class="section-title">
+    
+        <div class="section-title hidden">
           <h2>Contact Us</h2>
         </div>
 
         <div class="row contact-info">
 
-          <div class="col-md-4">
+          <div class="col-md-4 con hidden">
             <div class="contact-address">
               <i class="bi bi-geo-alt"></i>
               <h3>Address</h3>
-              <address>Johanesburg, South Africa</address>
+              <address>{{website_content.address}}</address>
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-4 con hidden">
             <div class="contact-phone">
               <i class="bi bi-phone"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">000 111 2222</a></p>
+              <p><a href="tel:{{website_content.phoneNumber}}">{{website_content.phoneNumber}}</a></p>
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-4  con hidden">
             <div class="contact-email">
               <i class="bi bi-envelope"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">Not just yet@holdon.com</a></p>
+              <p><a href="mailto:{{website_content.emailAddress}}">{{website_content.emailAddress}}</a></p>
             </div>
           </div>
 
@@ -138,35 +130,24 @@
 
         <div class="form">
           <h5 class="text-center"></h5>
-          <!--<form id="contactForm" method="POST" class="contact-form" action="#contact">-->
           <form id="contactForm" class="contact-form">
           {% csrf_token %} 
             <div class="row">
-              <div class="col-md form-group">
-                <!--{{form.name}}-->
+              <div class="col-md form-group con hidden">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your name" required>
               </div>
-              <div class="col-md form-group mt-3 mt-md-0">
-                <!--{{form.email}}-->
+              <div class="col-md form-group mt-3 mt-md-0 con hidden">
                 <input type="email" class="form-control" name="email" id="email" placeholder="Your email" required>
               </div>
             </div>
-            <div class="form-group mt-3">
-              <!--{{form.subject}}-->
+            <div class="form-group mt-3 con hidden">
               <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required>
             </div>
-            <div class="form-group mt-3">
-              <!--{{form.message}}-->
+            <div class="form-group mt-3 con hidden">
               <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message" required></textarea>
             </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <!--<div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>-->
-            </div>
-            <div class="text-center" style="margin: 1rem auto">
-              <!--{% include 'main/partials/messages.html' %}-->
-              <button type="submit" class="button">
+            <div class="text-center con hidden" style="margin: 1rem auto">
+              <button type="submit" class="button-Contact">
                 Send Message
               </button>
             </div>
@@ -181,10 +162,10 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Lollipop</span></strong>. All Rights Reserved
+        &copy; Copyright {% now 'Y' %} <strong><span>Lollipop</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        Designed by <a href="">Lollipop</a>
+        Designed by <a href="{{website_content.websiteURL}}">Lollipop</a>
       </div>
     </div>
   </footer><!-- End #footer -->
@@ -198,7 +179,9 @@
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
   <script src="{% static 'assets/js/main2.js' %}"></script>
+  <script src="{% static 'assets/js/scroll.js' %}"></script>
 
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>

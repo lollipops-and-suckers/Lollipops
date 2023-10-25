@@ -1,5 +1,7 @@
 from django import forms
 from .models import ContactProfile, Notification
+from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV2Invisible
 
 
 class ContactForm(forms.ModelForm):
@@ -35,6 +37,7 @@ class ContactForm(forms.ModelForm):
 		model = ContactProfile
 		fields = ('name', 'email', 'subject', 'message',)
 
+
 class Notification(forms.ModelForm):
 	
 	name = forms.CharField(max_length=100, required=True,
@@ -42,11 +45,13 @@ class Notification(forms.ModelForm):
 			'placeholder': 'Your name',
 			'class': 'form-control'
 			}))
-	email = forms.EmailField(max_length=254, required=True, 
+	email = forms.EmailField(max_length=100, required=True, 
 		widget=forms.TextInput(attrs={
 			'placeholder': 'Your Email',
 			'class': 'form-control'
 			}))
+	#captcha = ReCaptchaField()
+	#captcha = ReCaptchaField(widget=ReCaptchaV2Invisible)
 
 
 	class Meta:

@@ -38,6 +38,12 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['192.168.1.15']
 
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_BACKEND = config('EMAIL_BACKEND')
 
 # Application definition
 
@@ -51,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'ckeditor',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +160,6 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
+RECAPTCHA_PUBLIC_KEY = config('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = config('RECAPTCHA_PRIVATE_KEY')

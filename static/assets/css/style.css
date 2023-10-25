@@ -5,17 +5,13 @@ html, body{
   font-weight: 800;
 }
 
-/*body{
-  background: yellow;
-  font-family: Arial;
-}*/
-
 svg {
-    display: block;
-    font: 10.5em 'Montserrat';
-    width: 960px;
-    height: 300px;
-    margin: 0 auto;
+  display: block;
+  font: 20vw 'Montserrat';
+  /*font: 10.5em 'Montserrat';*/
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .text-copy {
@@ -28,27 +24,27 @@ svg {
 }
 
 .text-copy:nth-child(1){
-	stroke: #ff6680;
+	stroke: #ff14ff;
 	animation-delay: -1;
 }
 
 .text-copy:nth-child(2){
-	stroke: #66ccff;
+	stroke: #00efff;
 	animation-delay: -2s;
 }
 
 .text-copy:nth-child(3){
-	stroke: #ffe666;
+	stroke: #fff;
 	animation-delay: -3s;
 }
 
 .text-copy:nth-child(4){
-	stroke: #66ff99;
+	stroke: #a6ddff;
 	animation-delay: -4s;
 }
 
 .text-copy:nth-child(5){
-	stroke: #9966ff ;
+	stroke: #c6b8ff;
 	animation-delay: -5s;
 }
 
@@ -127,7 +123,7 @@ h6,
 }
 
 @media (max-width: 768px) {
-  #header .logo h1 {
+  #header .con h1 {
     font-size: 28px;
     padding: 8px 0;
   }
@@ -145,9 +141,7 @@ h6,
 #hero {
   width: 100%;
   height: 100vh;
-  /*background: url("../img/1.jpg") top center;*/
-  background: url("../img/1.jpg") center;
-  /*background-image: url("../img/gifr.gif");*/
+  background: url("../img/cool.gif") top center;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
@@ -155,17 +149,6 @@ h6,
   margin-top: -80px;
   z-index: 9;
   /* countdown */
-}
-
-video {
-  /** Simulationg background-size: cover */
-  object-fit: fill;
-  height: 100%;
-  width: 100%;
-
-  position: relative;
-  top: 0;
-  left: 0;
 }
 
 #hero .hero-container {
@@ -205,54 +188,7 @@ video {
   margin: 30px 0 60px 0;
 }
 
-#hero .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: red;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#hero .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-#hero .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-#hero .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading-notify 1s linear infinite;
-}
-
-@keyframes animate-loading-notify {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-#hero .php-email-form input {
+#hero .notification-form input {
   border-radius: 3px;
   box-shadow: none;
   font-size: 14px;
@@ -263,13 +199,14 @@ video {
   margin: 0 8px;
 }
 
-#hero .php-email-form button[type=submit] {
+#hero .notification-form button[type=submit] {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 7px 30px;
+  height: 60px;
   border-radius: 3px;
   transition: 0.5s;
   margin: 10px;
@@ -278,7 +215,7 @@ video {
   background: #4f92af;
 }
 
-#hero .php-email-form button[type=submit]:hover {
+#hero .notification-form button[type=submit]:hover {
   background: transparent;
   color: #fff;
   border: 2px solid #fff;
@@ -302,7 +239,7 @@ video {
     margin-bottom: 30px;
   }
 
-  #hero .php-email-forminput {
+  #hero .notification-forminput {
     margin: 0 auto;
   }
 }
@@ -340,7 +277,83 @@ section {
 .section-title p {
   margin-bottom: 0;
 }
+/*--------------------------------------------------------------
+# OnScroll Anime
+--------------------------------------------------------------*/
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
 
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
+.obj:nth-child(1) {
+  transition-delay: 100ms;
+}
+
+.obj:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.obj:nth-child(3) {
+  transition-delay: 1000ms;
+}
+
+.obj:nth-child(4) {
+  transition-delay: 800ms;
+}
+
+.cons {
+  display: flex;
+}
+
+.con:nth-child(1) {
+  transition-delay: 400ms;
+}
+
+.con:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.con:nth-child(3) {
+  transition-delay: 400ms;
+}
+
+.con:nth-child(4) {
+  transition-delay: 600ms;
+}
+
+.con:nth-child(5) {
+  transition-delay: 400ms;
+}
+
+.con:nth-child(6) {
+  transition-delay: 200ms;
+}
+
+.con:nth-child(7) {
+  transition-delay: 400ms;
+}
+
+.con:nth-child(8) {
+  transition-delay: 600ms;
+}
+
+.con:nth-child(9) {
+  transition-delay: 600ms;
+}
+
+@media(prefers-reduced-motion) {
+  .hidden {
+    transition: none;
+  }
+}
 /*--------------------------------------------------------------
 # Contact Us
 --------------------------------------------------------------*/
@@ -388,47 +401,6 @@ section {
   margin-bottom: 20px;
 }
 
-.contact .contact-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .contact-form .error-message br+br {
-  margin-top: 25px;
-}
-
-.contact .contact-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .contact-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .contact-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
-}
-
 .contact .contact-form input,
 .contact .contact-form textarea {
   border-radius: 0;
@@ -441,22 +413,12 @@ section {
   border-color: #4f92af;
 }
 
-/*.contact .contact-form button[type=submit] {
-  background: #4f92af;
-  border: 0;
-  padding: 10px 24px;
-  color: #fff;
-  transition: 0.4s;
-}*/
-
 .contact .contact-form button[type=submit]:hover {
   background: #72a8bf;
 }
 
-.button {
+.button-Contact, .button-Notify {
   display: inline-block;
-  width: 220px;
-  height: 60px;
   border:  2px solid #4f92af;
   color: black;
   font-size: 20px;
@@ -465,79 +427,68 @@ section {
   text-decoration: none;
   line-height: 56px;
   box-sizing: border-box;
-  /*border-radius: 50px;*/
   background-color: transparent;
   outline: none;
+  place-content: center;
   transition: all ease 0.5s;
 }
 
-.active {
-  font-size: 0;
-  width: 50px;
-  height: 50px;
+.loader {
+  pointer-events: none;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  border-left-color: transparent;
-  animation: rotate 1.4s ease 0.5s infinite;
+  border: 3px solid transparent;
+  border-top-color: #fff;
+  animation: rotateAnime 1s ease infinite;
 }
 
-.success {
+.loader2 {
+  pointer-events: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #000;
+  animation: rotateAnime 1s ease infinite;
+}
+
+@keyframes rotateAnime {
+  0% {
+    transform: rotate(0turn);
+  }
+  100% {
+    transform:rotate(1turn);
+  }
+}
+
+.valid-form {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+
   position: relative;
-  background-color: #4f92af;
-  animation: bounce 0.3s ease-in;
-}
-
-.success::before {
-  content: '';
-  position: absolute;
-  background: url(../img/check-solid.svg) no-repeat;
+  content: "";
+  position: relative;
   left: 0;
   right: 0;
   margin: 0 auto;
-  width: 31px;
-  height: 31px;
-  line-height: 31px;
-  top: 8px;
+}
+
+.invalid-form {
+  position: relative;
+  content: "";
+  position: relative;
+
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  color: red;
 }
 
 .error-form {
   position: relative;
-  background-color: #da6517;
-  animation: bounce 0.3s ease-in;
-}
-
-.error-form::before {
-  content: '';
-  position: absolute;
-  background: url(../img/xmark-solid.svg) no-repeat;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  width: 31px;
-  height: 31px;
-  line-height: 31px;
-  top: 8px;
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(360deg); 
-  }
-}
-
-@keyframes bounce {
-  0% {
-    transform: scale(0.9);
-  }
-}
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 @media (min-width: 768px) {
